@@ -7,7 +7,7 @@ import {
 } from './controllers.js'
 const router = express.Router()
 
-router.get('*', (req, res, next) => {
+router.get('/*', (req, res, next) => {
 	res.send(200)
 })
 router.get('/api/products', getProducts)
