@@ -2,7 +2,7 @@ import express from 'express'
 import morgan from 'morgan'
 import { connectDB } from './config/db.js'
 import router from './routes/routes.js'
-import errorHandler, { routeNotFound } from './error/errorHandler.js'
+import errorHandler from './error/errorHandler.js'
 import cors from 'cors'
 import { URL } from 'node:url'
 const __dirname = new URL('..', import.meta.url).pathname
@@ -20,7 +20,5 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 app.use(router)
-
-app.use(routeNotFound)
 app.use(errorHandler)
 app.listen(port, () => console.log(`Server listening on port ${port || 8000}`))
